@@ -1,4 +1,4 @@
-# Project Name : Smart Streetlight System using Sunlight and AI
+# Smart Streetlight System using Sunlight and AI
 
 ## 1. Participants
 최인호, 황석주, 김지우, 장호민
