@@ -52,18 +52,18 @@
 				<div class="sb-sidenav-menu">
 					<div class="nav">
 						<div class="sb-sidenav-menu-heading">CCTV</div>
-						<a onclick="change3()" id="camera3" class="nav-link" style="cursor: pointer;" href="camera all.html">
+						<a onclick="change3()" id="camera3" class="nav-link active" style="cursor: pointer;" href="camera all.html">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-video"></i>
 							</div> Camera All
 						</a>
-						<a onclick="change1()" id="camera1" class="nav-link active" style="cursor: pointer;">
+						<a onclick="change1()" id="camera1" class="nav-link" style="cursor: pointer;" href="camera1.html">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-video"></i>
 							</div> Camera 1
 							<img class="blinking" src="!.png" style="width: 20px; height: 20px; padding-left: 5px; box-sizing: content-box;">
 						</a>
-						<a onclick="change2()" id="camera2" class="nav-link" style="cursor: pointer;">
+						<a onclick="change2()" id="camera2" class="nav-link" style="cursor: pointer;" href="camera1.html">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-video"></i>
 							</div> Camera 2
@@ -79,12 +79,24 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container2">
-					<h1 id="camera_no" class="mt-4">Camera 1</h1>
-					<video class="cctv" autoplay muted controls width="1560px" id="videosource">
-						<source src="mp4 sample.mp4">
-					</video>
+                    <h1 id="camera_no" class="mt-4">Camera All</h1>
+                    <video class="cctv2 float-left" autoplay muted controls width="780px" id="videosource">
+                        <source src="mp4 sample.mp4">
+                    </video>
+                    <video class="cctv2 float-left" autoplay muted controls width="780px" id="videosource">
+                        <source src="mp4 sample.mp4">
+                    </video>
+                    <div></div>
+                    <video class="cctv2 float-left" autoplay muted controls width="780px" id="videosource">
+                        <source src="mp4 sample.mp4">
+                    </video>
+                    <video class="cctv2 float-left" autoplay muted controls width="780px" id="videosource">
+                        <source src="mp4 sample.mp4">
+                    </video>
 				</div>
-			</main>
+            </main>
+
+
 
 		</div>
 	</div>

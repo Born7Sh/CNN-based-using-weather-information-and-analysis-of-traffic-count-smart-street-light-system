@@ -10283,10 +10283,15 @@ body {
     margin:1rem auto auto auto;
   }
 
+  .cctv2{
+    margin: 0.25rem;
+  }
+
   .statics{
-    height: 45rem;
-    width: 100rem;
-    margin: auto;
+    height: 24rem;
+    width: 50rem;
+    margin: 0.25rem;
+    text-align: center;
   }
 
   .blinking{
@@ -10328,4 +10333,41 @@ body {
 
   .unactive{
     background-color: #252a2e;
+  }
+
+  .container2{
+    width: max-content;
+    height: max-content;
+    margin: auto;
+  }
+
+  .weather{
+    width: 178px;
+    height: 178px;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .weathertext{
+    width: 178px;
+    height: 50px;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    margin-top: 1rem;
+    font-size: xx-large;
+    font-weight:normal;
+    text-align: center;
+    display: inline-block;  
+  }
+
+  .weathertext2{
+    width: 178px;
+    height: 50px;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+    display: inline-block;
   }

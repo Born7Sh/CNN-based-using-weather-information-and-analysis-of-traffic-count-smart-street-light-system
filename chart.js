@@ -6,7 +6,7 @@ am4core.ready(function () {
     // Themes end
 
     // Create chart instance
-    var chart = am4core.create("chartdiv", am4charts.XYChart);
+    chart = am4core.create("chartdiv", am4charts.XYChart);
 
     //
 
@@ -91,11 +91,20 @@ am4core.ready(function () {
     // Add cursor
     chart.cursor = new am4charts.XYCursor();
 
+
+
+}); // end am4core.ready()
+
+function abc(){
+    chart.data = generateChartData();
+}
+
     // generate some random data, quite different range
     function generateChartData() {
         var chartData = [];
-        var firstDate = new Date();
-        firstDate.setDate(firstDate.getDate() - 14);
+        var start = document.getElementById('date1');   // 시작 날짜를 뽑아옴
+        var starttime = start.value;
+        var firstDate = new Date(starttime);
         firstDate.setHours(0, 0, 0, 0);
 
         var hits = 10;
@@ -121,5 +130,3 @@ am4core.ready(function () {
         }
         return chartData;
     }
-
-}); // end am4core.ready()
