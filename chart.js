@@ -109,6 +109,7 @@ function abc(){
 
         var hits = 10;
         var views = 30;
+        var visits;
 
         for (var i = 0; i < 15; i++) {      // 반복한 횟수가 곧 가로축 갯수
             // we create date objects here. In your data, you can have date strings
