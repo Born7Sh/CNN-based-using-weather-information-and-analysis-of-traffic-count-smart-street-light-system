@@ -10349,27 +10349,27 @@ body {
   }
 
   .weather{
-    width: 178px;
-    height: 178px;
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
-    margin-top: 1.5rem;
+    width: 7.25rem;
+    height: 7.25rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 3.5rem;
   }
 
   .weathertext{
-    width: 178px;
+    width: 8.75rem;
     height: 50px;
     margin-left: 0.25rem;
     margin-right: 0.25rem;
     margin-top: 1rem;
-    font-size: xx-large;
+    font-size: x-large;
     font-weight:normal;
     text-align: center;
     display: inline-block;  
   }
 
   .weathertext2{
-    width: 178px;
+    width: 8.75rem;
     height: 50px;
     margin-left: 0.25rem;
     margin-right: 0.25rem;

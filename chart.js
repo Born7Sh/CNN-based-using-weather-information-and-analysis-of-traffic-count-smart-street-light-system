@@ -14,7 +14,7 @@ am4core.ready(function () {
     chart.colors.step = 2;
 
     // Add data
-    chart.data = generateChartData();
+    chart.data = generateChartData(true, true, true);
 
     // Create axes
     var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
@@ -82,8 +82,8 @@ am4core.ready(function () {
     }
 
     createAxisAndSeries("visits", "통행량", false, "circle");
-    createAxisAndSeries("views", "차량", true, "triangle");
-    createAxisAndSeries("hits", "트럭", true, "rectangle");
+    createAxisAndSeries("cars", "차량", true, "triangle");
+    createAxisAndSeries("trucks", "트럭", true, "rectangle");
 
     // Add legend
     chart.legend = new am4charts.Legend();
@@ -95,39 +95,182 @@ am4core.ready(function () {
 
 }); // end am4core.ready()
 
-function abc(){
-    chart.data = generateChartData();
+function refreshchart() {
+
+    var cars = document.getElementById('cars').checked;
+    var trucks = document.getElementById('trucks').checked;
+    var total = document.getElementById('total').checked;
+
+    chart.data = generateChartData(cars, trucks, total);
 }
 
-    // generate some random data, quite different range
-    function generateChartData() {
-        var chartData = [];
-        var start = document.getElementById('date1');   // 시작 날짜를 뽑아옴
-        var starttime = start.value;
-        var firstDate = new Date(starttime);
-        firstDate.setHours(0, 0, 0, 0);
+// generate some random data, quite different range
+function generateChartData(car, truck, total) {
+    var chartData = [];
+    var start = document.getElementById('date1');   // 시작 날짜를 뽑아옴
+    var starttime = start.value;
+    var firstDate = new Date(starttime);
+    firstDate.setHours(0, 0, 0, 0);
 
-        var hits = 10;
-        var views = 30;
-        var visits;
+    var cars = 30;
+    var trucks = 10;
+    var visits;
 
-        for (var i = 0; i < 15; i++) {      // 반복한 횟수가 곧 가로축 갯수
-            // we create date objects here. In your data, you can have date strings
-            // and then set format of your dates using chart.dataDateFormat property,
-            // however when possible, use date objects, as this will speed up chart rendering.
-            var newDate = new Date(firstDate);
-            newDate.setDate(newDate.getDate() + i);
+    var flag = car*4+truck*2+total;
 
-            hits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);
-            views += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 1);
-            visits = hits + views;
-
-            chartData.push({
-                date: newDate,
-                visits: visits,
-                hits: hits,
-                views: views
-            });
-        }
-        return chartData;
+    switch(flag){
+        case 7: // 차량, 트럭, 통행량
+            for (var i = 0; i < 15; i++) {      // 반복한 횟수가 곧 가로축 갯수
+                // we create date objects here. In your data, you can have date strings
+                // and then set format of your dates using chart.dataDateFormat property,
+                // however when possible, use date objects, as this will speed up chart rendering.
+                var newDate = new Date(firstDate);
+                newDate.setDate(newDate.getDate() + i);
+        
+                cars += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);
+                trucks += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 1);
+                visits = cars + trucks;
+        
+                chartData.push({
+                    date: newDate,
+                    visits: visits,
+                    trucks: trucks,
+                    cars: cars
+                });
+            }
+            break;
+        case 6: // 차량, 트럭
+            for (var i = 0; i < 15; i++) {
+                var newDate = new Date(firstDate);
+                newDate.setDate(newDate.getDate() + i);
+        
+                cars += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);
+                trucks += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 1);
+                visits = cars + trucks;
+        
+                chartData.push({
+                    date: newDate,
+                    trucks: trucks,
+                    cars: cars
+                });
+            }
+            break;
+        case 5: // 차량, 통행량
+            for (var i = 0; i < 15; i++) {
+                var newDate = new Date(firstDate);
+                newDate.setDate(newDate.getDate() + i);
+        
+                cars += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);
+                trucks += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 1);
+                visits = cars + trucks;
+        
+                chartData.push({
+                    date: newDate,
+                    visits: visits,
+                    cars: cars
+                });
+            }
+            break;
+        case 4: // 차량
+            for (var i = 0; i < 15; i++) {
+                var newDate = new Date(firstDate);
+                newDate.setDate(newDate.getDate() + i);
+        
+                cars += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);
+                trucks += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 1);
+                visits = cars + trucks;
+        
+                chartData.push({
+                    date: newDate,
+                    cars: cars
+                });
+            }
+            break;
+        case 3: // 트럭, 통행량
+            for (var i = 0; i < 15; i++) {
+                var newDate = new Date(firstDate);
+                newDate.setDate(newDate.getDate() + i);
+        
+                cars += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);
+                trucks += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 1);
+                visits = cars + trucks;
+        
+                chartData.push({
+                    date: newDate,
+                    visits: visits,
+                    trucks: trucks
+                });
+            }
+            break;
+        case 2: // 트럭
+            for (var i = 0; i < 15; i++) {
+                var newDate = new Date(firstDate);
+                newDate.setDate(newDate.getDate() + i);
+        
+                cars += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);
+                trucks += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 1);
+                visits = cars + trucks;
+        
+                chartData.push({
+                    date: newDate,
+                    trucks: trucks
+                });
+            }
+            break;
+        case 1: // 통행량
+            for (var i = 0; i < 15; i++) {
+                var newDate = new Date(firstDate);
+                newDate.setDate(newDate.getDate() + i);
+        
+                cars += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);
+                trucks += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 1);
+                visits = cars + trucks;
+        
+                chartData.push({
+                    date: newDate,
+                    visits: visits
+                });
+            }
+            break;
+        case 0: // 아무것도 체크 안함
+            for (var i = 0; i < 15; i++) {
+                var newDate = new Date(firstDate);
+                newDate.setDate(newDate.getDate() + i);
+        
+                cars += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);
+                trucks += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 1);
+                visits = cars + trucks;
+        
+                chartData.push({
+                    date: newDate
+                });
+            }
+            break;
+        default:
+            alert("Flag Error");
     }
+
+
+/*    for (var i = 0; i < 15; i++) {      // 반복한 횟수가 곧 가로축 갯수
+        // we create date objects here. In your data, you can have date strings
+        // and then set format of your dates using chart.dataDateFormat property,
+        // however when possible, use date objects, as this will speed up chart rendering.
+        var newDate = new Date(firstDate);
+        newDate.setDate(newDate.getDate() + i);
+
+        cars += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);
+        trucks += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 1);
+        visits = cars + trucks;
+
+        chartData.push({
+            date: newDate,
+            visits: visits,
+            trucks: trucks,
+            cars: cars
+        });
+    }
+
+*/
+
+    return chartData;
+}

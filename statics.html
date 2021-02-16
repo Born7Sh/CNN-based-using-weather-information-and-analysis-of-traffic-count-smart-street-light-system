@@ -29,7 +29,7 @@
 <body>
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<button class="side_menu"><img class="menu_img" src="menu.png"></button>
-		<a class="navbar-brand" href="camera1.html">Steet Eye</a>
+		<a class="navbar-brand" href="camera1.html">Street Eye</a>
 		<ul class="navbar-nav">
 
 			<li class="nav-item unactive"><a class="nav-link" href="camera1.html">카메라</a>
@@ -71,11 +71,11 @@
 						</a>
 						<div class="collapse show" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<form><input type="date" class="date1" id="date1" onchange="changedate(); abc();"></form>
+								<form><input type="date" class="date1" id="date1" onchange="changedate(); refreshchart();"></form>
 							</nav>
 							<nav style="margin-left: 90px;font-size: larger; font-weight: bolder;">~</nav>
 							<nav class="sb-sidenav-menu-nested nav">
-								<form><input type="date" class="date1" id="date2" onchange="changedate2(); abc();"></form>
+								<form><input type="date" class="date1" id="date2" onchange="changedate2(); refreshchart();"></form>
 								<script src="duration.js"></script>
 							</nav>
 						</div>
@@ -87,8 +87,8 @@
 						</a>
 						<div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<form><input type="checkbox" checked> 차량<br><input type="checkbox" checked> 트럭
-									<br><input type="checkbox" checked> 통행량
+								<form><input type="checkbox" checked id="cars" onchange="refreshchart();"> 차량<br><input type="checkbox" checked id="trucks" onchange="refreshchart();"> 트럭
+									<br><input type="checkbox" checked id="total" onchange="refreshchart();"> 통행량
 								</form>
 							</nav>
 						</div>
@@ -111,14 +111,17 @@
 							<img class="weather" src="high_brightness.png" id="brightnessimg">
 							<img class="weather" src="low_temperature.png" id="temperatureimg">
 							<img class="weather" src="sunny.png" id="weatherimg">
+							<img class="weather" src="bbad_dust.png" id="dustimg">
 							<img class="weather" src="accident.png">
 							<div class="weathertext">가로등 밝기</div>
 							<div class="weathertext">기온</div>
 							<div class="weathertext">날씨</div>
+							<div class="weathertext">미세먼지</div>
 							<div class="weathertext">사고</div>
 							<div class="weathertext2" id="brightness">80%</div>
 							<div class="weathertext2" id="temperature">-8°C</div>
 							<div class="weathertext2" id="weather">Sunny</div>
+							<div class="weathertext2" id="dust">200㎍/㎥</div>
 							<div class="weathertext2">3건</div>
 						</div>
 					</div>
@@ -151,10 +154,16 @@
 							<button onclick="c1();">Sunny</button>
 							<button onclick="c2();">Windy</button>
 							<button onclick="c3();">Rainy</button>
+							<div></div>
+							<button onclick="d1();">20㎍/㎥</button>
+							<button onclick="d2();">40㎍/㎥</button>
+							<button onclick="d3();">90㎍/㎥</button>
+							<button onclick="d4();">250㎍/㎥</button>
 							<script>
 								var brightness = document.getElementById('brightness');
 								var temperature = document.getElementById('temperature');
 								var weather = document.getElementById('weather');
+								var dust = document.getElementById('dust');
 
 								function a1(){
 									brightness.innerHTML = "90%";
@@ -191,6 +200,22 @@
 								function c3(){
 									weather.innerHTML = "Rainy";
 									changetweather();
+								}
+								function d1(){
+									dust.innerHTML = "20㎍/㎥";
+									changedust();
+								}
+								function d2(){
+									dust.innerHTML = "40㎍/㎥";
+									changedust();
+								}
+								function d3(){
+									dust.innerHTML = "90㎍/㎥";
+									changedust();
+								}
+								function d4(){
+									dust.innerHTML = "250㎍/㎥";
+									changedust();
 								}
 							</script>
 							<script src="weather.js"></script>
