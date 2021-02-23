@@ -142,82 +142,47 @@
 					-->
 					<div class="card float-left statics">
 						<div class="card-body">
-							<div>임의 세팅값 설정↑</div>
-							<button onclick="a1();">90%</button>
-							<button onclick="a2();">50%</button>
-							<button onclick="a3();">30%</button>
-							<div></div>
-							<button onclick="b1();">30°C</button>
-							<button onclick="b2();">15°C</button>
-							<button onclick="b3();">4°C</button>
-							<div></div>
-							<button onclick="c1();">Sunny</button>
-							<button onclick="c2();">Windy</button>
-							<button onclick="c3();">Rainy</button>
-							<div></div>
-							<button onclick="d1();">20㎍/㎥</button>
-							<button onclick="d2();">40㎍/㎥</button>
-							<button onclick="d3();">90㎍/㎥</button>
-							<button onclick="d4();">250㎍/㎥</button>
-							<script>
-								var brightness = document.getElementById('brightness');
-								var temperature = document.getElementById('temperature');
-								var weather = document.getElementById('weather');
-								var dust = document.getElementById('dust');
-
-								function a1(){
-									brightness.innerHTML = "90%";
-									changebrightness();
-								}
-								function a2(){
-									brightness.innerHTML = "50%";
-									changebrightness();
-								}
-								function a3(){
-									brightness.innerHTML = "30%";
-									changebrightness();
-								}
-								function b1(){
-									temperature.innerHTML = "30°C";
-									changetemperature();
-								}
-								function b2(){
-									temperature.innerHTML = "15°C";
-									changetemperature();
-								}
-								function b3(){
-									temperature.innerHTML = "4°C";
-									changetemperature();
-								}
-								function c1(){
-									weather.innerHTML = "Sunny";
-									changetweather();
-								}
-								function c2(){
-									weather.innerHTML = "Windy";
-									changetweather();
-								}
-								function c3(){
-									weather.innerHTML = "Rainy";
-									changetweather();
-								}
-								function d1(){
-									dust.innerHTML = "20㎍/㎥";
-									changedust();
-								}
-								function d2(){
-									dust.innerHTML = "40㎍/㎥";
-									changedust();
-								}
-								function d3(){
-									dust.innerHTML = "90㎍/㎥";
-									changedust();
-								}
-								function d4(){
-									dust.innerHTML = "250㎍/㎥";
-									changedust();
-								}
-							</script>
+							<table class="table table-striped table-hover">
+								<thead class="thead-dark">
+									<tr>
+										<th>날짜</th>
+										<th>Lastname</th>
+										<th>Email</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>2/22</td>
+										<td>Doe</td>
+										<td>john@example.com</td>
+									</tr>
+									<tr>
+										<td>2/21</td>
+										<td>Moe</td>
+										<td>mary@example.com</td>
+									</tr>
+									<tr>
+										<td>2/20</td>
+										<td>Dooley</td>
+										<td>july@example.com</td>
+									</tr>
+									<tr>
+										<td>2/19</td>
+										<td>Dooley</td>
+										<td>july@example.com</td>
+									</tr>
+									<tr>
+										<td>2/18</td>
+										<td>Dooley</td>
+										<td>july@example.com</td>
+									</tr>
+									<tr>
+										<td>2/17</td>
+										<td>Dooley</td>
+										<td>july@example.com</td>
+									</tr>
+								</tbody>
+							</table>
 							<script src="weather.js"></script>
 						</div>
 					</div>
