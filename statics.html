@@ -7,8 +7,8 @@
 	<meta name="description" content="" />
 	<meta name="author" content="" />
 	<title>Statics</title>
-	<link href="styles.css" rel="stylesheet" />
-	<link href="4ace.png" rel="shortcut icon" type="image/x-icon">
+	<link href="../web/css/styles.css" rel="stylesheet" />
+	<link href="../web/img/4ace.png" rel="shortcut icon" type="image/x-icon">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 	<!-- Styles -->
@@ -21,18 +21,18 @@
 	<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
 	<!-- Chart code -->
-	<script src="chart.js"></script>
-	<script src="clock.js"></script>
+	<script src="../web/js/chart.js"></script>
+	<script src="../web/js/clock.js"></script>
 
 </head>
 
 <body>
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-		<button class="side_menu"><img class="menu_img" src="menu.png"></button>
-		<a class="navbar-brand" href="camera1.html">Street Eye</a>
+		<button class="side_menu"><img class="menu_img" src="../web/img/menu.png"></button>
+		<a class="navbar-brand" href="camera.html">Street Eye</a>
 		<ul class="navbar-nav">
 
-			<li class="nav-item unactive"><a class="nav-link" href="camera1.html">카메라</a>
+			<li class="nav-item unactive"><a class="nav-link" href="camera.html">카메라</a>
 
 			</li>
 
@@ -76,7 +76,7 @@
 							<nav style="margin-left: 90px;font-size: larger; font-weight: bolder;">~</nav>
 							<nav class="sb-sidenav-menu-nested nav">
 								<form><input type="date" class="date1" id="date2" onchange="changedate2(); refreshchart();"></form>
-								<script src="duration.js"></script>
+								<script src="../web/js/duration.js"></script>
 							</nav>
 						</div>
 						<a class="nav-link active collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1"
@@ -105,19 +105,19 @@
 				<div class="container2">
 					<h1 class="mt-4">
 						Statics
-						<img class="bulb" id="bulb" src="bulb.png" onclick="br()">
+						<img class="bulb" id="bulb" src="../web/img/bulb.png" onclick="br()">
 						<span class="bulbbrightness">50%</span>
 					</h1>
-					<script src="bulbbrightness change.js"></script>
+					<script src="../web/js/bulbbrightness change.js"></script>
 					<div class="statics2 float-left" id="chartdiv"></div>
 					<div></div>
 					<div class="card float-left statics">
 						<div class="card-body">
-							<img class="weather" src="high_brightness.png" id="brightnessimg">
-							<img class="weather" src="low_temperature.png" id="temperatureimg">
-							<img class="weather" src="sunny.png" id="weatherimg">
-							<img class="weather" src="bbad_dust.png" id="dustimg">
-							<img class="weather" src="accident.png">
+							<img class="weather" src="../web/img/high_brightness.png" id="brightnessimg">
+							<img class="weather" src="../web/img/low_temperature.png" id="temperatureimg">
+							<img class="weather" src="../web/img/sunny.png" id="weatherimg">
+							<img class="weather" src="../web/img/bbad_dust.png" id="dustimg">
+							<img class="weather" src="../web/img/accident.png">
 							<div class="weathertext">가로등 밝기</div>
 							<div class="weathertext">기온</div>
 							<div class="weathertext">날씨</div>
@@ -188,7 +188,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<script src="weather.js"></script>
+							<script src="../web/js/weather.js"></script>
 						</div>
 					</div>
 				</div>
@@ -197,7 +197,7 @@
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-	<script src="sidebartoggle.js">	</script>
+	<script src="../web/js/sidebartoggle.js">	</script>
 </body>
 
 </html>
