@@ -79,7 +79,12 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container2" id="camerachange">
-					<h1 id="camera_no" class="mt-4">Camera All</h1>
+					<h1 id="camera_no" class="mt-4">
+						Camera All
+						<img class="bulb" id="bulb" src="bulb.png" onclick="br()">
+						<span class="bulbbrightness">50%</span>
+					</h1>
+					<script src="bulbbrightness change.js"></script>
 					<video class="cctv2 float-left" autoplay muted controls width="780px" id="videosource">
 						<source src="">
 					</video>
