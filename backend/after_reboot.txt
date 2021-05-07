@@ -1,0 +1,4 @@
+1. config.json에서 db 서버 ip주소를 바꿔준다.
+2. app.js에서 주소를 바꿔준다.
+3. config폴더에서 ip주소 바꾸기
+4. auto_renew ip 변경
