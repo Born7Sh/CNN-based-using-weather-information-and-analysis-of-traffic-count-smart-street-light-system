@@ -19,6 +19,6 @@ public/
 routes/
 views/
 web/
-
+socketConnect/
 app.js
 package.json
