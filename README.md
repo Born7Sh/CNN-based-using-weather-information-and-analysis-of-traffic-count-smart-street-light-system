@@ -1,5 +1,4 @@
-# CNN을 기반으로한 기상정보 및 통행량 분석을 통한 스마트 교통 가로등
-# CNN based using weather information and analysis of traffic count smart street light system
+# CNN을 기반으로한 기상정보 및 통행량 분석을 통한 스마트 교통 가로등(CNN based using weather information and analysis of traffic count smart street light system)
 
 ## 1. 참여자
 최인호, 황석주, 김지우, 장호민
