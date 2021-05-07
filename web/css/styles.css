@@ -10280,11 +10280,18 @@ body {
   }
 
   .cctv{
+    background-color: hsl(0, 0%, 25%);
     margin:0.25rem auto auto auto;
+    width: 1500px;
+    height: 750px;
   }
 
   .cctv2{
     margin: 0.25rem;
+    background-color: hsl(0, 0%, 25%);
+    width: 780px;
+    height: 390px;
+    -webkit-user-select: none;
   }
 
   .statics{
