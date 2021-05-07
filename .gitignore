@@ -1,0 +1,24 @@
+# comments
+
+# no /node_modules
+/node_modules
+
+# no config files
+/config
+
+#no file
+config.json
+
+backend/nohup.out
+
+npm-debug.log
+
+auto_renew/
+models/
+public/
+routes/
+views/
+web/
+
+app.js
+package.json
