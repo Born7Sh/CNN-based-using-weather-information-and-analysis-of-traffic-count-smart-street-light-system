@@ -17,7 +17,6 @@ auto_renew/
 models/
 public/
 routes/
-views/
 web/
 socketConnect/
 app.js
