@@ -82,7 +82,7 @@ app.get('/statistics', async(req,res,next)=>{ // 2
 
 app.use(function(req,res,next){
     if(!req.secure)
-        res.redirect('http://13.124.150.142:3000/web/login.html');
+        res.redirect('http://13.125.25.248:3000/web/login.html');
 });
 
 
