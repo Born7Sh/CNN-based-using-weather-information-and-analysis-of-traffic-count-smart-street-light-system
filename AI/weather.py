@@ -40,7 +40,7 @@ class Weather:
         now = datetime.datetime.now()
         del_now = datetime.timedelta(hours = 1)
         now = now-del_now
-        nowstr = now.strftime('%Y-04-01 %H:00:00')
+        nowstr = now.strftime('%Y-05-11 11:00:00')
         dt = nowstr.split()
         cursor.execute(sql,(dt[0],dt[1]))
         self.weather = list(cursor.fetchall())
