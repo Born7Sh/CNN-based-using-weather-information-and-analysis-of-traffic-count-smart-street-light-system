@@ -24,6 +24,7 @@ from threading import Thread
 import importlib.util
 import datetime
 
+import DBConnect
 #import RPi.GPIO as GPIO
 import Test1
 import Test2
@@ -34,7 +35,8 @@ class VideoStream:
     """Camera object that controls video streaming from the Picamera"""
     def __init__(self,resolution=(640,480),framerate=30):
         # Initialize the PiCamera and the camera image stream
-        self.stream = cv2.VideoCapture("http://222.237.154.71:8091/?action=stream")
+        #self.stream = cv2.VideoCapture("http://223.171.79.55:8091/?action=stream")
+        self.stream = cv2.VideoCapture(0)
         self.fourcc = cv2.VideoWriter_fourcc(*'DIVX')
         ret = self.stream.set(cv2.CAP_PROP_FOURCC, self.fourcc)
         ret = self.stream.set(3,resolution[0])
@@ -76,7 +78,7 @@ class VideoStream:
 # Define and parse input arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('--modeldir', help='Folder the .tflite file is located in',
-                    required=True)
+                    required=False, default = "model")
 parser.add_argument('--graph', help='Name of the .tflite file, if different than detect.tflite',
                     default='detect.tflite')
 parser.add_argument('--labels', help='Name of the labelmap file, if different than labelmap.txt',
@@ -168,6 +170,7 @@ time.sleep(1)
 
 #2021-02-01 HSJ 다른 파일 클래스 가져오기(프레임및데이터확인)
 strLight1 = Test1.StrLight()
+strLight1.getStrInfo()
 strLight2 = Test2.StrLight()
 
 #2021-03-21 HSJ 초기 strLight_w_brt 설정
@@ -221,14 +224,6 @@ while True:
     
     if camfrmnum == 1:
         #HSJ 2021-02-16 video recording
-        """camera.close()
-    	camera.resolution = (640, 480)
-    	now = datetime.datetime.now()
-    	filename = now.strftime( '%Y-%m-%d %H:%M:%S')
-    	camera.start_recording(output = filename + '.h264')
-    	camera.wait_recording(10)
-    	camera.stop_recording()
-    	camera.close()"""
         now = datetime.datetime.now()
         dtwithoutsecondnow = now.replace(second=0)
         print(dtwithoutsecondnow)
@@ -255,7 +250,7 @@ while True:
 
             # Draw label
             object_name = labels[int(classes[i])] # Look up object name from "labels" array using class index
-            if object_name == 'person':
+            if (object_name == 'person' and (scores[i] > (min_conf_threshold+0.2)) and (scores[i] <= 1.0)):
                 label = '%s: %d%%' % (object_name, int(scores[i]*100)) # Example: 'person: 72%'
                 labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2) # Get font size
                 label_ymin = max(ymin, labelSize[1] + 10) # Make sure not to draw label too close to top of window
@@ -281,7 +276,7 @@ while True:
                 
     # Draw framerate in corner of frame
     cv2.putText(frame,'FPS: {0:.2f}'.format(frame_rate_calc),(30,50),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,0),2,cv2.LINE_AA)
-
+    print('FPS: {0:.2f}'.format(frame_rate_calc))
     # All the results have been drawn on the frame, so it's time to display it.
     cv2.imshow('Object detector', frame)
 
@@ -289,10 +284,7 @@ while True:
     print(carnum, " cars")
     print(trucknum, " trucks")
     
-    f = open("helloClient.txt", 'r')
-    line = f.readline()
-    print(line)
-    f.close()
+
     
     strLight1.addPeopleNum(personnum)
     strLight2.addPeopleNum(personnum)
@@ -315,15 +307,23 @@ while True:
         strLight1.getWeather()
         strLight1.calByTra()
         strLight1.calByWea()
-        strLight1.setLedBrt()
-        #2021-03-31 HSJ
         
+        #2021-03-31 HSJ
+        strLight1.calByLR()
+        strLight1.setLedBrt()
         #2021-03-21 HSJ 서버 insert
         strLight1.serv_Com()
         #2021-03-21 HSJ
 
+        f = open("helloClient.txt", 'w')
+        print(strLight1.brt)
+        f.write(str(strLight1.brt))
+        f.close()
+
         strLight1 = Test1.StrLight()
+        strLight1.getStrInfo()
         strLight2 = Test2.StrLight()
+        
         
     
     if camfrmnum == 150:
@@ -342,7 +342,8 @@ while True:
     if cv2.waitKey(1) == ord('q'):
         strLight1.setLedOff()
         break
-
+    
+  
     
 # Clean up
 cv2.destroyAllWindows()
