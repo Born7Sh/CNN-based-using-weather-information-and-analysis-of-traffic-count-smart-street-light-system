@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 """
 Created on Tue Feb  2 14:30:00 2021
@@ -8,12 +9,12 @@ Created on Tue Feb  2 14:30:00 2021
 import pymysql
 import weather
 from datetime import datetime
-
+import DBConnect
 #import RPi.GPIO as GPIO
 
 
 class StrLight:
-    code = 1
+    sl_code = 1
     brt=0
     is_Led_On = False
     is_On = False
@@ -24,10 +25,12 @@ class StrLight:
     frm_num = 0
     led_pin = 18
     w_brt = 0
-    def __init__(self): 
-        self.db = pymysql.connect(host = '13.124.150.142', user = 'root',password = 'wsp159159!',db = 'nodejs',charset = 'utf8')
+    def __init__(self):
+        #self.DBConnect = DBConnect()
+        self.db = pymysql.connect(host = '13.125.25.248', user = 'root',password = 'wsp159159!',db = 'nodejs',charset = 'utf8')
         self.cursor = self.db.cursor()
-    
+        #self.db = self.DBConnect.getDb()
+        #self.cursor = self.DBConnect.getCursor()
     def setPeopleNum(self,num):
         self.p_num = num
     
@@ -101,20 +104,24 @@ class StrLight:
         self.weat.getWeather(self.db,self.cursor)
         
     def insert_road_statistic(self,time):
-        #update road_statistics set date_time = "2021-04-01 11:00:00", human_traffic = 5 where sl_code = 1;
+#update road_statistics set date_time = "2021-04-01 11:00:00", human_traffic = 5 where sl_code = 1;
         #sql = """insert into road_statistics(sl_code,date_time,human_traffic,vehicle_traffic,llumination) values(%s,%s,%s,%s,%s)"""
+        
         sql = """insert into road_statistics_total(sl_code,date_time,human_traffic,vehicle_traffic,llumination) values(%s,%s,%s,%s,%s)"""
-        val = (time,int(self.p_num),int(self.c_num),int(self.brt),self.code)
+        val = (self.sl_code,time,int(self.p_num),int(self.c_num),int(self.brt))
         self.cursor.execute(sql,val)
         self.db.commit()
+        
         sql = """update road_statistics set date_time = %s, human_traffic = %s, vehicle_traffic = %s, llumination = %s where sl_code = %s"""
-        val = (time,int(self.p_num),int(self.c_num),int(self.brt),self.code)
+        val = (time,int(self.p_num),int(self.c_num),int(self.brt),self.sl_code)
         self.cursor.execute(sql,val)        
         self.db.commit()
-        
+        print("서버")  
+        #commit test
+
     def getStrInfo(self):
         sql = """select * from street_light where sl_codeid = %s"""
-        self.cursor.execute(sql,self.code)
+        self.cursor.execute(sql,self.sl_code)
         self.info = list(self.cursor.fetchall())
         self.db.commit()
         self.setInfo(self.info)
@@ -128,12 +135,15 @@ class StrLight:
         self.left_sl = info[0][6]
         self.right_sl = info[0][7]
     
-    #def getBrt(self,sl_code):
-        
+    def getBrt(self,sl_code):
+        sql = """select llumination from road_statistics where sl_code = %s"""
+        val = (self.sl_code)
+        self.cursor.execute(sql,val)
+        self.w_brt = self.cursor.fetchall()    
         
     def calByTra(self):
         if (self.total_num>2 and self.total_num<=15):
-            self.w_brt = self.w_brt + 2*self.total_num
+            self.w_brt = self.w_brt + 2*self.total_num + 20
         elif (self.total_num>15):
             self.w_brt = self.w_brt + 30
             
@@ -150,10 +160,27 @@ class StrLight:
         if(now.hour>=18 and int(self.weat.getPrec_type())>=3):
             self.w_brt = self.w_brt + 5*int(self.weat.getPrec_type())
         
-    #def calByBrt(self):
+    def calByBrt(self):
+        sql = """select llumination from road_statistics where sl_code = %s"""
+        self.cursor.execute(sql,self.sl_code)
+        self.info = list(self.cursor.fetchall())
+        self.db.commit()
         
-    #def calByLR(self):
+    def calByLR(self):
+        sql = """select llumination from road_statistics where sl_code = %s"""
+        val = (self.left_sl)
+        self.cursor.execute(sql,val)
+        self.left_sl_brt = self.cursor.fetchall()[0][0]
+        print(self.left_sl_brt)
+        
+        sql = """select llumination from road_statistics where sl_code = %s"""
+        val = (self.right_sl)
+        self.cursor.execute(sql,val)
+        self.right_sl_brt = self.cursor.fetchall()[0][0]
+        
+        if (int(self.left_sl_brt) >= 70 or int(self.right_sl_brt >=70) and self.w_brt <=20):
+            self.w_brt = self.w_brt + 50
+    
 
-str1 = StrLight()
-
-str1.getWeather()
+                
+        
