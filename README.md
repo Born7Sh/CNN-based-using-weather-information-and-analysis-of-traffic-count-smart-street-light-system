@@ -27,11 +27,11 @@
 2-3. 사람 및 차의 통행량에 따른 밝기 변화
 2-4. 가로등 밝기가 1번 가로등 부터 순차적으로 켜지거나 밝기가 세짐.
 3. Web site
-![image](https://user-images.githubusercontent.com/20091175/123535647-12f7e400-d760-11eb-8e02-4b73a7d07839.png)
+<img src ="https://user-images.githubusercontent.com/20091175/123535647-12f7e400-d760-11eb-8e02-4b73a7d07839.png">
 4. 차량번호 추적 기능 -> 문제가 있는 차량 조회가능
 ## 차량번호 인식 되는 데이터 영역 표시와 분석한 사진
-![image](https://user-images.githubusercontent.com/20091175/123535673-42a6ec00-d760-11eb-926a-b58510fc66a7.png)
-![image](https://user-images.githubusercontent.com/20091175/123535682-581c1600-d760-11eb-9987-545ee6331f73.png)
+<img src ="https://user-images.githubusercontent.com/20091175/123535673-42a6ec00-d760-11eb-926a-b58510fc66a7.png">
+<img src ="https://user-images.githubusercontent.com/20091175/123535682-581c1600-d760-11eb-9987-545ee6331f73.png">
 
 
 
