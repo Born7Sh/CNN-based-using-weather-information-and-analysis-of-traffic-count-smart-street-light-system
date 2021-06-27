@@ -21,7 +21,7 @@
 1. object detection 차량 및 사람 탐지 가능
 ![image](https://user-images.githubusercontent.com/20091175/123535719-944f7680-d760-11eb-9054-f3e74bd53a01.png)
 2. 알고리즘에 따라 가로등의 빛의 밝기가 바뀜.
-![KakaoTalk_20210619_125255961](https://user-images.githubusercontent.com/20091175/123535752-ce207d00-d760-11eb-8d16-24d34bd58cac.jpg)
+<img src = "https://user-images.githubusercontent.com/20091175/123535752-ce207d00-d760-11eb-8d16-24d34bd58cac.jpg" width = "250" height="400">
 2-1. 날씨, 미세먼지 등에 따른 밝기 변화
 2-2. 밝기에 따른 변화
 2-3. 사람 및 차의 통행량에 따른 밝기 변화
