@@ -22,10 +22,10 @@
 ![image](https://user-images.githubusercontent.com/20091175/123535719-944f7680-d760-11eb-9054-f3e74bd53a01.png)
 2. 알고리즘에 따라 가로등의 빛의 밝기가 바뀜.
 <img src = "https://user-images.githubusercontent.com/20091175/123535752-ce207d00-d760-11eb-8d16-24d34bd58cac.jpg" width = "250" height="400">
-2-1. 날씨, 미세먼지 등에 따른 밝기 변화
-2-2. 밝기에 따른 변화
-2-3. 사람 및 차의 통행량에 따른 밝기 변화
-2-4. 가로등 밝기가 1번 가로등 부터 순차적으로 켜지거나 밝기가 세짐.
+2-1. 날씨, 미세먼지 등에 따른 밝기 변화 <br>
+2-2. 밝기에 따른 변화 <br>
+2-3. 사람 및 차의 통행량에 따른 밝기 변화 <br>
+2-4. 가로등 밝기가 1번 가로등 부터 순차적으로 켜지거나 밝기가 세짐.<br>
 3. Web site
 <img src ="https://user-images.githubusercontent.com/20091175/123535647-12f7e400-d760-11eb-8e02-4b73a7d07839.png">
 4. 차량번호 추적 기능 -> 문제가 있는 차량 조회가능
