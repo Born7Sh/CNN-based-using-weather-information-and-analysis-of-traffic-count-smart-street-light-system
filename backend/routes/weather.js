@@ -13,7 +13,7 @@ require('moment-timezone');
 
 
 router.get('/', function(req, res, next) {
-  const url1 = 'http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst';
+  const url1 = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst';
   const connection = mysql.createConnection({
     host:config.host, user : config.user, password : config.password, database:config.database
   });
